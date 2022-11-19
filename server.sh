@@ -35,3 +35,12 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 kubectl taint node m1 node-role.kubernetes.io/master:NoSchedule-
 
 sudo kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+echo "source <(kubectl completion bash)" >> ~/.bashrc # add autocomplete permanently to your bash shell.
+
+echo 'alias k=kubectl' >> ~/.bashrc 
+
+echo  'complete -o default -F __start_kubectl k' >> ~/.bashrc
+
+source ~/.bashrc
+
